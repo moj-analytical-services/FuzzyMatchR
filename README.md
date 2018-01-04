@@ -15,7 +15,7 @@ To run an example, first clone Robin Linacre's fuzzymatcher from here: https://g
 
 From the fuzzymatcher folder within this, run:
 
-`
+```{r}
 install.packages("fastLink")
 library(fastLink)
 
@@ -49,3 +49,4 @@ matched.data$score <- matches.out2$posterior
 
 View(matched.data)
 matches.out$posterior`
+```
