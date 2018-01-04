@@ -11,22 +11,24 @@ NB: This is not my work! The purpose of this repository is to provide a referenc
 
 ### Example usage ###
 
-To run an example, first clone Robin Linacre's fuzzymatcher from here (just so you can use the example datasets): https://github.com/RobinL/fuzzymatcher
+This example runs on one of the dummy datasets used for the examples in Robin Linacre's python-based fuzzymatcher (https://github.com/RobinL/fuzzymatcher). To see how it performs on a larger dataset, you can change "left_3" and "right_3" in the read.csv lines to "left_4" and "right_4" respectively.
 
-From the fuzzymatcher folder within this, run:
 
 ```{r}
 install.packages("fastLink")
 library(fastLink)
 
-left <- read.csv('./fuzzymatcher/tests/data/left_3.csv')
-right <- read.csv('./fuzzymatcher/tests/data/right_3.csv')
+# Get data
+left <- read.csv("https://raw.githubusercontent.com/RobinL/fuzzymatcher/master/tests/data/left_4.csv")
+right <- read.csv("https://raw.githubusercontent.com/RobinL/fuzzymatcher/master/tests/data/right_4.csv")
 
 left
 right
 
+# Make sure names are consistent
 names(right) <- names(left)
 
+# Run the matching
 matches.out <- fastLink(
   dfA = left, dfB = right, 
   varnames = names(left),
@@ -36,8 +38,10 @@ matches.out <- fastLink(
   threshold.match = .9 # Match probability threshold. The default is .85, and you can play around with different values
 )
 
-summary(matches.out2)
+# Gives the match rate, estimated falst positive rate (FDR) and estimated false negative rate (FNR)
+summary(matches.out)
 
+# Extracts the matched data
 a <- matches.out$matches$inds.a
 b <- matches.out$matches$inds.b
 
@@ -48,5 +52,5 @@ matched.data <- merge(cbind(left[a,],"matchindex"=b),
 matched.data$score <- matches.out2$posterior
 
 View(matched.data)
-matches.out$posterior`
+
 ```
