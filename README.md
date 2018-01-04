@@ -14,7 +14,7 @@ NB: This is not my work! The purpose of this repository is to provide a referenc
 This example runs on one of the dummy datasets used for the examples in Robin Linacre's python-based fuzzymatcher (https://github.com/RobinL/fuzzymatcher). To see how it performs on a larger dataset, you can change "left_3" and "right_3" in the read.csv lines to "left_4" and "right_4" respectively.
 
 
-```{r}
+```r
 install.packages("fastLink")
 library(fastLink)
 
