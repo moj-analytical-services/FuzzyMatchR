@@ -11,7 +11,7 @@ NB: This is not my work! The purpose of this repository is to provide a referenc
 
 ### Example usage ###
 
-To run an example, first clone Robin Linacre's fuzzymatcher from here: https://github.com/RobinL/fuzzymatcher
+To run an example, first clone Robin Linacre's fuzzymatcher from here (just so you can use the example datasets): https://github.com/RobinL/fuzzymatcher
 
 From the fuzzymatcher folder within this, run:
 
